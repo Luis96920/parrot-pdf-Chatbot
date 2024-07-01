@@ -1,5 +1,5 @@
 
-# Parrot PDF Chat
+# Parrot PDF Chat 🦜
 
 Parrot PDF Chat is an intelligent chatbot application that allows users to ask questions based on the content of uploaded PDF documents. The application uses Django for the backend, Langchain for natural language processing, and the Mistral 7B model for generating responses.
 
