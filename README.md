@@ -51,7 +51,7 @@ Parrot PDF Chat is an intelligent chatbot application that allows users to ask q
    \`\`\`
 
 7. **Access the application**
-   - Open your browser and go to \`http://127.0.0.1:8000\`
+   - Open your browser and go to `http://127.0.0.1:8000`
 
 ## Usage
 
