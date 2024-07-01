@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parrot-Chat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/home_style.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'image/logo.png' %}" />
+
+</head>
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="home_alert">
+        <div class="alert alert-info" role="alert">
+            <strong class="align-self-center">{{ message }}</strong>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<body>
+    <div class="sidebar collapsed">
+        <div class="tooltip">
+            <span class="tooltiptext">Open Sidebar</span>
+            <button id="sidebar-toggle">
+                <i class="fas fa-chevron-circle-right fa-lg" style="color: #ff8000;"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <button id="new-conversation-btn">Start New Conversation</button>
+        </div>
+    </div>
+    <div class="chat-container light-mode">
+        <div class="chat-content">
+            <div class="chat-header">
+                <div class="logo-container">
+                    <img src="{% static 'image/bot.png'%}">
+                </div>
+                <div class="upload_file">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form}}
+                        <button type="submit" class="btn btn-info">Upload</button>
+                    </form>
+                </div>
+                <div>
+                    <form method="link" action="{% url 'Login' %}">
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </form>
+                </div>
+            </div>
+            <div class="chat-box" id="chat-box"></div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button id="send-button">
+                    <i class="fas fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Custom JavaScript -->
+    <script src="{% static 'js/home.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.home_alert').fadeOut(5000);
+        });
+    </script>
+</body>
+
+</html>
