@@ -28,7 +28,7 @@ Parrot PDF Chat is an intelligent chatbot application that allows users to ask q
 2. **Create a virtual environment**
    \`\`\`sh
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scriptsctivate`
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    \`\`\`
 
 3. **Install the dependencies**
